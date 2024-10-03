@@ -6,6 +6,11 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull:false,
     },
+   idade:{
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        unique: true,
+    },
     loginuser:{
         type: DataTypes.STRING,
         allowNull:false,

@@ -26,6 +26,9 @@ const authController = require('../controller/authController');
  *         username:
  *           type: string
  *           description: The username of the user
+ *         idade:
+ *           type: integer
+ *           description: This is your age
  *         loginuser:
  *           type: string
  *           description: The login username of the user
@@ -37,6 +40,7 @@ const authController = require('../controller/authController');
  *           description: Indicates if the user is active
  *       example:
  *         username: John Cezar
+ *         idade: "12"
  *         loginuser: cezar.john
  *         password: secret@123
  *         active: true

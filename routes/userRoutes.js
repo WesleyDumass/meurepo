@@ -11,6 +11,7 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *       type: object
  *       required:
  *         - username
+ *         - idade
  *         - loginuser
  *         - password
  *       properties:
@@ -20,6 +21,9 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *         username:
  *           type: string
  *           description: The username of the user
+ *         idade:
+ *           type: integer
+ *           description: This is your age
  *         loginuser:
  *           type: string
  *           description: The login username of the user
@@ -31,6 +35,7 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *           description: Indicates if the user is active
  *       example:
  *         username: John Cezar
+ *         idade: 12
  *         loginuser: cezar.john
  *         password: secret@123
  *         active: true
@@ -47,7 +52,7 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  * @swagger
  * /users:
  *   get:
- *     summary: List all users (username, loginuser, and active status)
+ *     summary: List all users (username, idade, loginuser, and active status)
  *     tags: [Users]
  *     security:
  *       - BearerAuth: []
@@ -65,6 +70,8 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *                     type: integer
  *                   username:
  *                     type: string
+ *                   idade:
+ *                     type: integer
  *                   loginuser:
  *                     type: string
  *                   active:
@@ -120,6 +127,6 @@ router.put('/users/:id/activate', authenticateToken, userController.activeUser);
  *       500:
  *         description: Some server error
  */
-router.put('/users/:id/activate', authenticateToken, userController.deactivateUser);
+router.put('/users/:id/deactivate', authenticateToken, userController.deactivateUser);
 
 module.exports = router;
