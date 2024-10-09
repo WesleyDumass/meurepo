@@ -18,6 +18,7 @@ const authController = require('../controller/authController');
  *       required:
  *         - username
  *         - loginuser
+ *         - celular
  *         - password
  *       properties:
  *         id:
@@ -32,6 +33,9 @@ const authController = require('../controller/authController');
  *         loginuser:
  *           type: string
  *           description: The login username of the user
+ *         celular:
+ *           type: integer
+ *           description: This is your phone number
  *         password:
  *           type: string
  *           description: The password of the user
@@ -42,6 +46,7 @@ const authController = require('../controller/authController');
  *         username: John Cezar
  *         idade: "12"
  *         loginuser: cezar.john
+ *         celular: 1198765432
  *         password: secret@123
  *         active: true
  */
@@ -89,6 +94,9 @@ router.post('/register', authController.register);
  *               loginuser:
  *                 type: string
  *                 description: The login username of the user
+ *               celular:
+ *                  type: string
+ *                  description: This is your phone number
  *               password:
  *                 type: string
  *                 description: The password of the user

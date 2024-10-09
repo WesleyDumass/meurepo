@@ -4,7 +4,7 @@ exports.listUsers = async (req, res) => {
     try{
         const users = await User.findAll(
             {
-                attributes: ['id','username','loginuser','active'],
+                attributes: ['id','username', 'idade','loginuser', 'celular','active'],
             });
             if(users.length === 0){
                 return res.status(404).json({message: 'User not found'});

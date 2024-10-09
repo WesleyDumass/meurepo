@@ -13,6 +13,7 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *         - username
  *         - idade
  *         - loginuser
+ *         - celular
  *         - password
  *       properties:
  *         id:
@@ -27,6 +28,9 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *         loginuser:
  *           type: string
  *           description: The login username of the user
+ *         celular:
+ *           type: integer
+ *           description: This is your phone number
  *         password:
  *           type: string
  *           description: The password of the user
@@ -37,6 +41,7 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *         username: John Cezar
  *         idade: 12
  *         loginuser: cezar.john
+ *         celular: 1198765432
  *         password: secret@123
  *         active: true
  */
@@ -74,6 +79,8 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *                     type: integer
  *                   loginuser:
  *                     type: string
+ *                   celular:
+ *                     type: integer
  *                   active:
  *                     type: boolean
  */

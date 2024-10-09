@@ -7,12 +7,17 @@ const User = sequelize.define('User', {
         allowNull:false,
     },
    idade:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER(3),
         allowNull:false,
         unique: true,
     },
     loginuser:{
         type: DataTypes.STRING,
+        allowNull:false,
+        unique: true,
+    },
+    celular:{
+        type: DataTypes.INTEGER(11),
         allowNull:false,
         unique: true,
     },
