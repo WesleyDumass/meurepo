@@ -1,17 +1,14 @@
-/*const {DataTypes} = require('sequelize');
-const sequelize = require('../config/config');
+const {DataTypes} = require ('sequelize');
+const sequelize = require ('../config/config');
 
 const Materia = sequelize.define('Materia', {
-    nome_materia: {
+    descricao:{
         type: DataTypes.STRING,
         allowNull:false,
+        unique:true,
     },
-    desc_materia:{
-        type: DataTypes.STRING,
-        allowNull:false,
-    },
-}, {
-    timestramps: false,
+},{
+    timestamps: false,
 });
 
-module.exports = Materia;*/
+module.exports = Materia;
