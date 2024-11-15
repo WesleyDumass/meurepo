@@ -10,27 +10,23 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *     User:
  *       type: object
  *       required:
- *         - username
- *         - idade
- *         - loginuser
- *         - celular
+ *         - nome_social
+ *         - CPF
+ *         - email
  *         - password
  *       properties:
  *         id:
  *           type: integer
  *           description: The auto-generated id of the user
- *         username:
+ *         nome_social:
  *           type: string
- *           description: The username of the user
- *         idade:
+ *           description: The nome_social of the user
+ *         CPF:
  *           type: integer
- *           description: This is your age
- *         loginuser:
+ *           description: This is your CPF
+ *         email:
  *           type: string
- *           description: The login username of the user
- *         celular:
- *           type: integer
- *           description: This is your phone number
+ *           description: The login nome_social of the user
  *         password:
  *           type: string
  *           description: The password of the user
@@ -38,10 +34,9 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *           type: boolean
  *           description: Indicates if the user is active
  *       example:
- *         username: John Cezar
- *         idade: 12
- *         loginuser: cezar.john
- *         celular: 1198765432
+ *         nome_social: John Cezar
+ *         CPF: 12345678910
+ *         email: cezar.john
  *         password: secret@123
  *         active: true
  */
@@ -57,7 +52,7 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  * @swagger
  * /users:
  *   get:
- *     summary: List all users (username, idade, loginuser, and active status)
+ *     summary: List all users (nome_social, CPF, email, and active status)
  *     tags: [Users]
  *     security:
  *       - BearerAuth: []
@@ -73,11 +68,11 @@ const authenticateToken = require('../middlewares/authmiddlewares');
  *                 properties:
  *                   id:
  *                     type: integer
- *                   username:
+ *                   nome_social:
  *                     type: string
- *                   idade:
+ *                   CPF:
  *                     type: integer
- *                   loginuser:
+ *                   email:
  *                     type: string
  *                   celular:
  *                     type: integer
@@ -128,7 +123,7 @@ router.put('/users/:id/activate', authenticateToken, userController.activeUser);
  *         description: The id of the user to activate
  *     responses:
  *       200:
- *         description: User (USERNAME) deactivated successfully
+ *         description: User (NOME_SOCIAL) deactivated successfully
  *       404:
  *         description: User not found
  *       500:

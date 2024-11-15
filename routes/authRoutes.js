@@ -16,26 +16,22 @@ const authController = require('../controller/authController');
  *     User:
  *       type: object
  *       required:
- *         - username
- *         - loginuser
- *         - celular
+ *         - nome_social
+ *         - email
  *         - password
  *       properties:
  *         id:
  *           type: integer
  *           description: The auto-generated id of the user
- *         username:
+ *         nome_social:
  *           type: string
- *           description: The username of the user
- *         idade:
+ *           description: The nome_social of the user
+ *         CPF:
  *           type: integer
- *           description: This is your age
- *         loginuser:
+ *           description: This is your CPF
+ *         email:
  *           type: string
- *           description: The login username of the user
- *         celular:
- *           type: integer
- *           description: This is your phone number
+ *           description: The login nome_social of the user
  *         password:
  *           type: string
  *           description: The password of the user
@@ -43,10 +39,9 @@ const authController = require('../controller/authController');
  *           type: boolean
  *           description: Indicates if the user is active
  *       example:
- *         username: John Cezar
- *         idade: "12"
- *         loginuser: cezar.john
- *         celular: 1198765432
+ *         nome_social: John Cezar
+ *         CPF: "12345678910"
+ *         email: cezar.john
  *         password: secret@123
  *         active: true
  */
@@ -91,17 +86,14 @@ router.post('/register', authController.register);
  *           schema:
  *             type: object
  *             properties:
- *               loginuser:
+ *               email:
  *                 type: string
- *                 description: The login username of the user
- *               celular:
- *                  type: string
- *                  description: This is your phone number
+ *                 description: The login nome_social of the user
  *               password:
  *                 type: string
  *                 description: The password of the user
  *             example:
- *               loginuser: cezar.john
+ *               email: cezar.john
  *               password: secret@123
  *     responses:
  *       200:
