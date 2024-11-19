@@ -45,23 +45,25 @@ router.get('/tutoria', TutoriaController.ListTutoria);
  *           description: Auto-generated ID of the record
  *         cod_tutoria:
  *           type: integer
- *           description: Student identification code
+ *           description: Tutoria identification code
  *         dia_agendado:
  *           type: integer
- *           description: Course identification code
+ *           description: Date of appoiment
  *         hora_agendada:
  *           type: integer
- *           description: Number of completed modules
+ *           description: time of appoiment
  *         aval_tutor:
  *           type: integer
- *           description: Number of completed modules
+ *           description: Tutor review
  *         cod_curso:
  *           type: integer
- *           description: Number of completed modules
+ *           description: Student identification code
  *       example:
- *         cod_aluno: 5
- *         cod_curso: 2
- *         progresso: 3
+ *         cod_tutoria: 1
+ *         dia_agendado: 2024-12-13
+ *         hora_agendada: 13:00:00
+ *         aval_tutor: 10
+ *         cod_curso: 1
  */
 
 /**
@@ -96,5 +98,65 @@ router.get('/tutoria', TutoriaController.ListTutoria);
  *         description: Server error
  */
 router.post('/tutoria', TutoriaController.CreateTutoria);
+
+/**
+ * @swagger
+ * /tutoria/{id}:
+ *   put:
+ *     summary: Update an existing Tutoria record
+ *     tags: [Tutoria]
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the Tutoria record to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Tutoria'
+ *     responses:
+ *       200:
+ *         description: Successfully updated the AlunoCurso record
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Tutoria'
+ *       404:
+ *         description: AlunoCurso record not found
+ *       500:
+ *         description: Server error
+ */
+router.put('/alunocurso/:id', TutoriaController.updateTutoria);
+
+/**
+ * @swagger
+ * /tutoria/{id}:
+ *   delete:
+ *     summary: Delete a product
+ *     tags: [Tutoria]
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: The id of the Tutoria to delete
+ *     responses:
+ *       204:
+ *         description: The Tutoria was successfully deleted
+ *       404:
+ *         description: Tutoria delete not found
+ *       500:
+ *         description: Some server error
+ */
+router.delete('/tutoria/:id', TutoriaController.DeleteTutoria);
 
 module.exports = router;
