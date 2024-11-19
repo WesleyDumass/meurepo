@@ -4,6 +4,7 @@ const sequelize = require('./config/config');
 const userRoutes = require ('./routes/userRoutes');
 const AlunoCursoRoutes = require('./routes/AlunoCursoRoutes')
 const TutoriaRoutes = require ('./routes/TutoriaRoutes');
+const PagamentoRoutes = require ('./routes/PagamentoRoutes');
 const authRoutes = require('./routes/authRoutes');
 const setupSwagger = require('./swagger/swagger');
 
@@ -14,6 +15,7 @@ app.use('/api', userRoutes);
 app.use('/api', AlunoCursoRoutes);
 app.use('/api', authRoutes);
 app.use('/api', TutoriaRoutes);
+app.use('/api', PagamentoRoutes);
 
 
 sequelize.sync()
