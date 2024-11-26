@@ -5,7 +5,6 @@ const User = sequelize.define('User', {
     nome_social: {
         type: DataTypes.STRING,
         allowNull:false,
-        unique: true,
     },
    CPF:{
         type: DataTypes.BIGINT(11),
