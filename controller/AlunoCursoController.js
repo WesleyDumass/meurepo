@@ -31,12 +31,12 @@ exports.ListAlunoCurso = async (req, res) =>{
 exports.updateAlunCurso = async (req, res) => {
     try {
         const { id } = req.params;
-        const [updated] = await Product.update(req.body, {
+        const [updated] = await AlunoCurso.update(req.body, {
             where: { id: id }
         });
         if (updated) {
-            const updatedProduct = await Product.findOne({ where: { id: id } });
-            res.status(200).json(updatedProduct);
+            const updatedAlunoCurso = await AlunoCurso.findOne({ where: { id: id } });
+            res.status(200).json(updatedAlunoCurso);
         } else {
             res.status(404).send('Student Curse not found');
         }

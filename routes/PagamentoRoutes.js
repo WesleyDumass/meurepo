@@ -4,6 +4,26 @@ const PagamentoController = require('../controller/PagamentoController');
 
 /**
  * @swagger
+ * /pagamento:
+ *   get:
+ *     summary: List all Pagamento records
+ *     tags: [Pagamento]
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of Pagamento records
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Pagamento'
+ */
+router.get('/pagamento', PagamentoController.ListPagamento);
+
+/**
+ * @swagger
  * components:
  *   securitySchemes:
  *     BearerAuth:
@@ -11,7 +31,7 @@ const PagamentoController = require('../controller/PagamentoController');
  *       scheme: bearer
  *       bearerFormat:
  *   schemas:
- *     Tutoria:
+ *     Pagamento:
  *       type: object
  *       required:
  *         - cod_pagamento
@@ -73,22 +93,62 @@ router.post('/pagamento', PagamentoController.CreatePagamento);
 
 /**
  * @swagger
- * /pagamento:
- *   get:
- *     summary: List all Pagamento records
+ * /pagamento/{id}:
+ *   put:
+ *     summary: Update an existing Pagamento record
  *     tags: [Pagamento]
  *     security:
  *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the Pagamento record to update
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Pagamento'
  *     responses:
  *       200:
- *         description: List of Pagamento records
+ *         description: Successfully updated the AlunoCurso record
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/pagamento'
+ *               $ref: '#/components/schemas/Pagamento'
+ *       404:
+ *         description: AlunoCurso record not found
+ *       500:
+ *         description: Server error
  */
-router.get('/pagamento', PagamentoController.ListPagamento);
+router.put('/pagamento/:id', PagamentoController.updatePagamento);
+
+/**
+ * @swagger
+ * /pagamento/{id}:
+ *   delete:
+ *     summary: Delete a Payment
+ *     tags: [Pagamento]
+ *     security:
+ *       - BearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: The id of the Pagamento to deleted
+ *     responses:
+ *       204:
+ *         description: The Pagamento was successfully deleted
+ *       404:
+ *         description: Pagamento delete not found
+ *       500:
+ *         description: Some server error
+ */
+router.delete('/pagamento/:id', PagamentoController.DeletePagamento);
 
 module.exports = router;
